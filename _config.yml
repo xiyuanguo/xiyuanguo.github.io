@@ -71,14 +71,14 @@ rss: /atom.xml ## RSS address.
 #### Image
 imglogo:
   enable: false             ## display image logo true/false.
-  src: #img/logo.png      ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
+  src: img/logo.png      ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
   #logo.png        
 #favicon: img/author.jpg    ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.     
  #favicon.ico
 apple_icon:  ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
 #jacman.jpg
 author_img:
-banner_img: #img/banner.jpg ## size:1920px*200px+. Banner Picture
+banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
 
 #### index post is expanding or not 
 index:
