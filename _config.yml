@@ -77,7 +77,7 @@ imglogo:
  #favicon.ico
 apple_icon:  ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
 #jacman.jpg
-author_img:author.png
+author_img:
 banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
 
 #### index post is expanding or not 
