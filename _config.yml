@@ -117,8 +117,7 @@ toc:
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
 
 #### Links
-links:
-xiyuanguo.githup.io
+links: xiyuanguo.githup.io
 
 #### Comment
 duoshuo_shortname: xiyuanguo
