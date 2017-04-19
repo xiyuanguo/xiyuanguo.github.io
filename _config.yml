@@ -102,7 +102,7 @@ author:
   zhihu:
   email:  
   twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
-  github:  xiyuanguo.github.io
+  github: xiyuanguo
   facebook: ##imjark
   linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
   google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
@@ -117,7 +117,7 @@ toc:
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
 
 #### Links
-links: xiyuanguo.githup.io
+links: xiyuanguo
 
 #### Comment
 duoshuo_shortname: xiyuanguo
