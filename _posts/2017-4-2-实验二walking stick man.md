@@ -112,11 +112,11 @@ glPopMatrix();</code></pre>
 PS:再向后走S的时候，有一个唯一不一样的地方在于，向后的时候小腿是不动的（跟大腿是一个整体，不单独旋转），所以不需要改变elbow的值  
 
 左转A:  
-		<pre><code>case 'a'://左转  
+<pre><code>case 'a'://左转  
 		turn = (turn + 5) % 360;//，每次转5度  
 		glutPostRedisplay();  
 		IsStop = true;  
-		break;</code></pre>  
+		break;  </code></pre>  
 
 6.实现最后的reshape函数和main函数
 思想：由于小人的大小及其移动范围的大小需要与最后的创建的窗口大小匹配所以设置参数w,h作为最后				窗口大小的输入，实现对于小人的reshape。
