@@ -29,44 +29,44 @@ Scene:储存了场境中的所有数据,包括视点,光源,物体等等;(参看
 漫反射:  
 漫反射光受一个光源反射出来的颜色,其值为光的颜色乘以物体的漫反射系数,又因为漫反射光与法矢量和光线的夹角有关,所以再乘以光的反向点积法线方向,最后再乘以光的强度,得到其漫反射光。  
 镜面反射:  
-根据入射光线和法矢量求出反射矢量,再以同样的返法求出反射矢量所接收到的光,即进行递归,最后再乘以镜面反射系数,得到其镜平反射光。
-if(depth<maxDepth){
-			if(object->ks!=0){
-				rRay.position=hitPoint;
-				rRay.direction=ray.reflect(object->getNormal(hitPoint));
-				rColor=rayTracing(rRay,depth+1);
-				if(object->type==1){
-					//cout<<"rcolor: "<<rColor<<endl;
-				}
-				rColor+=rColor*object->ks;
-			}
+根据入射光线和法矢量求出反射矢量,再以同样的返法求出反射矢量所接收到的光,即进行递归,最后再乘以镜面反射系数,得到其镜平反射光。  
+<pre><code>if(depth<maxDepth){  
+			if(object->ks!=0){  
+				rRay.position=hitPoint;  
+				rRay.direction=ray.reflect(object->getNormal(hitPoint));  
+				rColor=rayTracing(rRay,depth+1);  
+				if(object->type==1){  
+					//cout<<"rcolor: "<<rColor<<endl;  
+				}  
+				rColor+=rColor*object->ks;  
+			}  </code></pre>  
 
 透射光:  
 当视点射线Ray射到的物体为透明或半透明,即透射系数不等于0时,还要加上其后面透射的光,其计算值与反射光相似,只是方向是原来的返向,将得到的透射光乘以透射系数则得到其透射光;  
-			if(object->kt!=0){
-				tRay.position=hitPoint;
-				tRay.direction=ray.direction;//未加折射率
-				tColor=rayTracing(tRay,depth+1);
-			}
+<pre><code>if(object->kt!=0){  
+			tRay.position=hitPoint;  
+			tRay.direction=ray.direction;//未加折射率  
+			tColor=rayTracing(tRay,depth+1);  
+			}  </code></pre>  
 进行归一化:  
 正常情况下,上述几种光加起来将会大于1,即得到的结果为白光,所以我将物体的各个反射系数看成矢量求其模,再以此模对以上几种光作加权平均数,才能更接近真实情况下的光照;  
 阴影:  
 这里求的是漫反射光形成的阴影,当光源到物体之日有其他物体阻碍时,则将原本光原的光乘以阻碍物体的透射系数,当成新的光源射到物体上,形成阴影。  
-for(int i=0;i<lights.size();i++){
-		if(object->isNormalSide(lights[i]->position)){
-			sRay=lights[i]->position-hitPoint;
-			sRay.normalize();
-			shadowRay.position=lights[i]->position;
-			shadowRay.direction=hitPoint-lights[i]->position;
-			shadowRay.direction.normalize();
-			int nearIndex=nearestObject(shadowRay);
-			if(objects[nearIndex]==object){
-				sColor+=lights[i]->color*object->kd*sRay.dot(object->getNormal(hitPoint))*lights[i]->Ia;
-			}else{
-				sColor+=lights[i]->color*object->kd*sRay.dot(object->getNormal(hitPoint))*lights[i]->Ia;
-				sColor*=objects[nearIndex]->kt;
-			}
-		}
+<pre><code>for(int i=0;i<lights.size();i++){  
+		if(object->isNormalSide(lights[i]->position)){  
+			sRay=lights[i]->position-hitPoint;  
+			sRay.normalize();  
+			shadowRay.position=lights[i]->position;  
+			shadowRay.direction=hitPoint-lights[i]->position;  
+			shadowRay.direction.normalize();  
+			int nearIndex=nearestObject(shadowRay);  
+			if(objects[nearIndex]==object){  
+			sColor+=lights[i]->color*object->kd*sRay.dot(object->getNormal(hitPoint))*lights[i]->Ia;  
+			}else{  
+			sColor+=lights[i]->color*object->kd*sRay.dot(object->getNormal(hitPoint))*lights[i]->Ia;  
+				sColor*=objects[nearIndex]->kt;  
+			}  
+		}  </code></pre>  
 
 ## 四、计算直线与面的相交点:
 场境中有平面和球面两种,计算平面与直线交点时,根据公式平面表示方法为  
