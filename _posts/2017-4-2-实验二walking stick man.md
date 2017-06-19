@@ -2,11 +2,13 @@
 实验二 walking stick man
 郭奚源 201400301235
 
-视频结果展示：http://v.youku.com/v_show/id_XMjY4NDA3NjEwOA==?spm=a2h3j.8428770.3416059.1
+
+视频结果展示：http://v.youku.com/v_show/id_XMjY4NDA3NjEwOA==?spm=a2h3j.8428770.3416059.1  
+源代码在我的CGProject2仓库中~  
 
 /*
 阅读前的几点注释：
-1.在我的CGproject2项目中有这个实验报告的原始word版本，其中我将实验报告中的关键词和重点进行了加粗处理，更易阅读  
+在我的CGproject2仓库中有这个实验报告的原始word版本，其中我将实验报告中的关键词和重点进行了加粗处理，更易阅读  
 
 */
 
